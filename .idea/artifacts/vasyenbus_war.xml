@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="vasyenbus:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="vas-y-en-bus.war">
+      <element id="artifact" artifact-name="vasyenbus:war exploded" />
+    </root>
+  </artifact>
+</component>
