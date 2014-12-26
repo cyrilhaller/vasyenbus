@@ -25,5 +25,8 @@
         <module name="vasyenbus" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="vasyenbus" target="1.6" />
+    </bytecodeTargetLevel>
   </component>
 </project>
