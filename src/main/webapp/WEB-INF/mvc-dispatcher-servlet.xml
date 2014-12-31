@@ -1,5 +1,6 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:beans="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans
@@ -7,16 +8,26 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:annotation-config/>
+    <context:property-placeholder/>
+
     <context:component-scan base-package="fr.vasyenbus.controller"/>
 
-    <bean
-            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix">
-            <value>/WEB-INF/pages/</value>
-        </property>
-        <property name="suffix">
-            <value>.jsp</value>
-        </property>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <beans:property name="prefix" value="/WEB-INF/pages/"/>
+        <beans:property name="suffix" value=".jsp"/>
+    </bean>
+
+    <bean id="jedisURI" class="java.net.URI">
+        <constructor-arg value="redis://redistogo:457f42594bd1063afa50f0329006921e@mummichog.redistogo.com:9452"/>
+    </bean>
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig"/>
+    <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+        <constructor-arg index="0" ref="jedisPoolConfig"/>
+        <constructor-arg index="1" value="#{ @jedisURI.getHost() }"/>
+        <constructor-arg index="2" value="#{ @jedisURI.getPort() }"/>
+        <constructor-arg index="3" value="#{ T(redis.clients.jedis.Protocol).DEFAULT_TIMEOUT }"/>
+        <constructor-arg index="4" value="#{ @jedisURI.getUserInfo().split(':',2)[1] }"/>
     </bean>
 
 </beans>
