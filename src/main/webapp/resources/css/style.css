@@ -1,0 +1,127 @@
+body { padding-top: 50px; }
+
+
+.my-form-box {
+	margin-top: 0px;
+	z-index: 20;
+}
+
+.input-ville {
+	text-transform: uppercase;
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+#myCarousel {
+	height: 500px;
+	margin-bottom: 15px;
+}
+
+#miseEnAvant .well {
+	max-width: 260px;
+	margin: auto;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+	z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+#myCarousel .item {
+	height: 500px;
+	background-color: #777;
+}
+#myCarousel .carousel-inner > .item > img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	height: 500px;
+}
+
+#miseEnAvant {
+	margin-top: -20px;
+}
+
+#miseEnAvant .item {
+	margin-top: 10px;
+}
+
+#miseEnAvant .container {
+	width: 75%;
+}
+
+#miseEnAvant .btn {
+	display: block;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+
+
+	/* Bump up size of carousel content */
+	.carousel-caption p {
+		margin-bottom: 20px;
+		font-size: 21px;
+		line-height: 1.4;
+	}
+
+	#myCarousel {
+		height: 590px;
+		margin-bottom: 15px;
+	}
+
+	#myCarousel .item {
+		height: 590px;
+		background-color: #777;
+	}
+	#myCarousel .carousel-inner > .item > img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		min-width: 100%;
+		height: 590px;
+	}
+
+	.my-form-box {
+		margin-top: -590px;
+		margin-bottom: 51px;
+		z-index: 20;
+	}
+	#miseEnAvant {
+		margin-top: -12px;
+	}
+
+}
+
+@media (min-width: 992px) {
+
+	#myCarousel {
+		height: 500px;
+		margin-bottom: 15px;
+	}
+
+	#myCarousel .item {
+		height: 500px;
+		background-color: #777;
+	}
+	#myCarousel .carousel-inner > .item > img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		min-width: 100%;
+		height: 500px;
+	}
+	.my-form-box {
+		margin-top: -500px;
+		margin-bottom: 56px;
+		z-index: 20;
+	}
+	#miseEnAvant {
+		margin-top: 0px;
+	}
+}
