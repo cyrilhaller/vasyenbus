@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head th:replace="fragments/headTag :: headTag">
+    <title>Bibliothèque online :: Liste des livres</title>
+</head>
+
+<body>
+<div class="container">
+
+    <div th:include="fragments/bodyHeader" th:remove="tag"/>
+
+    <form th:object="${book}" th:action="'#'" th:method="post" class="form-horizontal">
+
+        <div class="control-group" th:classappend="${#fields.hasErrors('id')} ? 'error'">
+            <label class="control-label">Titre</label>
+
+            <div class="controls">
+                <input th:field="*{id}" type="text"/>
+                <span class="help-inline" th:errors="*{id}">[error]</span>
+            </div>
+        </div>
+
+        <div class="control-group" th:classappend="${#fields.hasErrors('title')} ? 'error'">
+            <label class="control-label">Titre</label>
+
+            <div class="controls">
+                <input th:field="*{title}" type="text"/>
+                <span class="help-inline" th:errors="*{title}">[error]</span>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit">Ajouter Livre</button>
+        </div>
+    </form>
+
+
+</div>
+
+
+<table th:replace="fragments/footer :: footer"/>
+
+</body>
+
+</html>

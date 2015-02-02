@@ -28,7 +28,7 @@ public class BaseController {
         this.jedisPool = jedisPool;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/tptp", method = RequestMethod.GET)
     public String welcome(ModelMap model) {
 
         model.addAttribute("message", "Welcome");
