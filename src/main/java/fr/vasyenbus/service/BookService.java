@@ -2,14 +2,14 @@ package fr.vasyenbus.service;
 
 import fr.vasyenbus.dataobject.Book;
 
-import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by CHALLER on 02/01/2015.
  */
 public interface BookService {
 
-    public Collection<Book> findBooks();
+    public List<Book> findBooks();
 
     public void saveBook(Book book);
 

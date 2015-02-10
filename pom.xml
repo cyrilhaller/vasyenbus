@@ -19,7 +19,7 @@
         <bootstrap.version>2.3.0</bootstrap.version>
         <jquery.version>1.9.0</jquery.version>
         <jquery-ui.version>1.9.2</jquery-ui.version>
-        <redis.version>2.0.0</redis.version>
+        <monogodb.version>1.6.2.RELEASE</monogodb.version>
         <thymeleaf.version>2.1.4.RELEASE</thymeleaf.version>
         <junit.version>4.12</junit.version>
         <jodatime.version>2.6</jodatime.version>
@@ -224,10 +224,11 @@
         </dependency>
 
         <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
-            <version>${redis.version}</version>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
+            <version>${monogodb.version}</version>
         </dependency>
+
     </dependencies>
 
     <build>
