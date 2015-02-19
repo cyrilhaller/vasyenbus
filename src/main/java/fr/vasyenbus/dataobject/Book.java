@@ -1,16 +1,27 @@
 package fr.vasyenbus.dataobject;
 
 import org.joda.time.DateTime;
+import org.springframework.data.annotation.Id;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Book {
 
+    @Id
     private Integer id;
     private String title;
     private String author;
 
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private DateTime writtenDate;
+
+    public Book() {
+
+    }
+
+    public Book(final String title, final String author) {
+        this.title = title;
+        this.author = author;
+    }
 
     public DateTime getWrittenDate() {
         return writtenDate;

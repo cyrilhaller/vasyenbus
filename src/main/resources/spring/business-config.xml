@@ -3,25 +3,31 @@
     Repository and Service layers
 -->
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:beans="http://www.springframework.org/schema/beans"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-        http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/data/mongo
+          http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd">
 
-    <bean id="jedisURI" class="java.net.URI">
-        <constructor-arg value="redis://redistogo:457f42594bd1063afa50f0329006921e@mummichog.redistogo.com:9452"/>
-    </bean>
-    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig"/>
-    <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
-        <constructor-arg index="0" ref="jedisPoolConfig"/>
-        <constructor-arg index="1" value="#{ @jedisURI.getHost() }"/>
-        <constructor-arg index="2" value="#{ @jedisURI.getPort() }"/>
-        <constructor-arg index="3" value="#{ T(redis.clients.jedis.Protocol).DEFAULT_TIMEOUT }"/>
-        <constructor-arg index="4" value="#{ @jedisURI.getUserInfo().split(':',2)[1] }"/>
-    </bean>
+    <beans profile="production">
+        <bean id="mongoURI" class="java.net.URI">
+            <constructor-arg
+                    value="mongodb://AUizlxPCSgOT:qZJagzAuYXRq@mongosoup-cont002.mongosoup.de:31771/cc_AUizlxPCSgOT"/>
+        </bean>
+
+        <mongo:mongo host="#{ @mongoURI.getHost()}" port="#{ @mongoURI.getPort() }" id="mongo"/>
+        <mongo:db-factory dbname="cc_AUizlxPCSgOT" mongo-ref="mongo" id="mongoDbFactory"/>
+
+        <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+            <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
+        </bean>
+
+        <mongo:repositories base-package="fr.vasyenbus.dao" />
+
+    </beans>
+
+
+
 
 </beans>

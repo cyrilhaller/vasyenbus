@@ -5,11 +5,8 @@ import fr.vasyenbus.dataobject.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
+import java.util.List;
 
-/**
- * Created by CHALLER on 02/01/2015.
- */
 @Service
 public class BookServiceImpl implements BookService {
 
@@ -17,17 +14,17 @@ public class BookServiceImpl implements BookService {
     private BookDao bookDao;
 
     @Override
-    public Collection<Book> findBooks() {
-        return bookDao.findBooks();
+    public List<Book> findBooks() {
+        return bookDao.findAll();
     }
 
     @Override
     public void saveBook(Book book) {
-        bookDao.saveBook(book);
+        bookDao.save(book);
     }
 
     @Override
     public void deleteBook(Integer id) {
-        bookDao.deleteBook(id);
+        bookDao.delete(id);
     }
 }

@@ -1,18 +1,9 @@
 package fr.vasyenbus.dao;
 
 import fr.vasyenbus.dataobject.Book;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.Collection;
-
-/**
- * Created by CHALLER on 02/01/2015.
- */
-public interface BookDao {
-
-    public Collection<Book> findBooks();
-
-    public void saveBook(Book book);
-
-    public void deleteBook(Integer id);
-
+@Repository
+public interface BookDao extends MongoRepository<Book, Integer> {
 }
