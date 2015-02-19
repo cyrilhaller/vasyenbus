@@ -23,6 +23,7 @@
         <thymeleaf.version>2.1.4.RELEASE</thymeleaf.version>
         <junit.version>4.12</junit.version>
         <jodatime.version>2.6</jodatime.version>
+        <env>linux</env>
     </properties>
 
     <dependencies>
@@ -232,6 +233,15 @@
 
     <build>
         <finalName>vas-y-en-bus</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <filters>
+            <filter>src/main/filters/${env}.properties</filter>
+        </filters>
         <plugins>
             <!-- Set JDK Compiler Level -->
             <plugin>
@@ -243,16 +253,27 @@
                     <target>${jdk.version}</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.2</version>
-                <configuration>
-                    <url>http://localhost:8080/manager/text</url>
-                    <server>TomcatServer</server>
-                    <path>/vas-y-en-bus</path>
-                </configuration>
-            </plugin>
+
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>olivier</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.tomcat.maven</groupId>
+                        <artifactId>tomcat7-maven-plugin</artifactId>
+                        <version>2.2</version>
+                        <configuration>
+                            <url>http://localhost:8080/manager/text</url>
+                            <server>TomcatServer</server>
+                            <path>/vas-y-en-bus</path>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
