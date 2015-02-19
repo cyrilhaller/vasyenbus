@@ -12,7 +12,7 @@
     </appender>
 
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-        <file>vas-y-en-bus.log</file>
+        <file>/tmp/vas-y-en-bus.log</file>
         <layout class="ch.qos.logback.classic.PatternLayout">
 
             <Pattern>
@@ -22,13 +22,12 @@
         </layout>
     </appender>
 
-    <logger name="fr.vasyenbus.controller" level="debug"
-            additivity="false">
+    <logger name="fr.vasyenbus.controller" level="debug" additivity="true">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
     </logger>
 
-    <root level="error">
+    <root level="debug">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
     </root>
