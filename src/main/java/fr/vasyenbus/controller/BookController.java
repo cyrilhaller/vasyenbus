@@ -28,7 +28,7 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String findBooks(ModelMap model) {
         model.addAttribute("books", bookService.findBooks());
         return FIND_BOOKS;
