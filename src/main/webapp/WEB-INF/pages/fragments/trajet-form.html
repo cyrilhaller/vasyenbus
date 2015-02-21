@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vas-y en bus !</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../resources/css/bootstrap-datetimepicker.min.css"
+          th:href="@{/resources/css/bootstrap-datetimepicker.min.css}" />
+    <link rel="stylesheet" type="text/css" href="../../../resources/css/bootstrap-select.min.css"
+          th:href="@{/resources/css/bootstrap-select.min.css}" />
+    <link rel="stylesheet" type="text/css" href="../../../resources/css/style.css"
+          th:href="@{/resources/css/style.css}" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+<div id="myCarousel"></div>
+
+<div th:fragment="trajet-form" class="container my-form-box">
+    <form method="post">
+        <div class="row">
+            <div class="well col-lg-4 col-sm-5 col-sm-offset-1 ">
+                <h1>Quel est votre trajet&nbsp;?</h1>
+                <div class="form-group">
+                    <input type="text" name="ville-depart" class="form-control input-ville" placeholder="Ville de départ" />
+                </div>
+                <div class="form-group">
+                    <input type="text" name="ville-arrivee" class="form-control input-ville" placeholder="Ville d'arrivée" />
+                </div>
+                <div class="form-group">
+                    <div class="input-group date form_datetime" data-date-format="dd MM yyyy à hh:ii" data-link-field="btn_date_depart" data-link-format="yyyy-mm-dd hh:ii">
+                        <input type="text" class="form-control" placeholder="date de départ" readonly="readonly" />
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                    <input type="hidden" name="btn_date_depart" id="btn_date_depart" value="" />
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group date form_datetime" data-date-format="dd MM yyyy à hh:ii" data-link-field="btn_date_retour" data-link-format="yyyy-mm-dd hh:ii">
+                        <input type="text" class="form-control" placeholder="date de retour" readonly="readonly" />
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                    <input type="hidden" name="btn_date_retour" id="btn_date_retour" value="" />
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <select class="selectpicker" data-width="100%">
+                                <option>0 adulte</option>
+                                <option selected="selected">1 adulte</option>
+                                <option>2 adultes</option>
+                                <option>3 adultes</option>
+                                <option>4 adultes</option>
+                                <option>5 adultes</option>
+                                <option>6 adultes</option>
+                                <option>7 adultes</option>
+                                <option>8 adultes</option>
+                                <option>9 adultes</option>
+                                <option>10 adultes</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="selectpicker" data-width="100%">
+                                <option>0 enfant</option>
+                                <option>1 enfant</option>
+                                <option>2 enfants</option>
+                                <option>3 enfants</option>
+                                <option>4 enfants</option>
+                                <option>5 enfants</option>
+                                <option>6 enfants</option>
+                                <option>7 enfants</option>
+                                <option>8 enfants</option>
+                                <option>9 enfants</option>
+                                <option>10 enfants</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="selectpicker" data-width="100%">
+                                <option>0 bébé</option>
+                                <option>1 bébé</option>
+                                <option>2 bébés</option>
+                                <option>3 bébés</option>
+                                <option>4 bébés</option>
+                                <option>5 bébés</option>
+                                <option>6 bébés</option>
+                                <option>7 bébés</option>
+                                <option>8 bébés</option>
+                                <option>9 bébés</option>
+                                <option>10 bébés</option>
+                            </select>
+                        </div>
+                    </div>
+                    <i>bébé en dessous de 3 ans</i>
+                </div>
+                <button type="submit" class="btn btn-primary">Rechercher</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="../../../resources/js/bootstrap-datetimepicker.min.js" th:src="@{/resources/js/bootstrap-datetimepicker.min.js}"></script>
+<script src="../../../resources/js/bootstrap-datetimepicker.fr.js" th:src="@{/resources/js/bootstrap-datetimepicker.fr.js}" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../resources/js/bootstrap-select.min.js" th:src="@{/resources/js/bootstrap-select.min.js}"></script>
+<script type="text/javascript" src="../../../resources/js/script.js" th:src="@{/resources/js/script.js}"></script>
+<div class="device-xs visible-xs">XS</div>
+<div class="device-sm visible-sm">SM</div>
+<div class="device-md visible-md">MD</div>
+<div class="device-lg visible-lg">LG</div>
+</body>
+</html>
