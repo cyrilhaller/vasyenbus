@@ -25,7 +25,7 @@
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
     <!-- uses WebJars so Javascript and CSS libs can be declared as Maven dependencies (Bootstrap, jQuery...) -->
-    <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
+    <!--mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/-->
 
     <!--
         - Message source for this context, loaded from localized "messages_xx" files.
