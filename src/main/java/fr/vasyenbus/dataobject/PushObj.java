@@ -4,18 +4,24 @@ package fr.vasyenbus.dataobject;
  * Created by olivier on 11/02/15.
  */
 public class PushObj {
-    private Integer id;
+    private String id;
     private String srcImgBackground;
     private String villeDepart;
     private String villeArrivee;
     private Float prix;
     private String linkAllerVoir;
 
-    public Integer getId() {
+    public PushObj(String villeDepart, String villeArrivee, Float prix) {
+        this.villeDepart = villeDepart;
+        this.villeArrivee = villeArrivee;
+        this.prix = prix;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

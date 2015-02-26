@@ -35,38 +35,14 @@
         <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner" role="listbox">
-        <div class="item active">
+        <div th:each="item, iterStatus : ${carouselPrincipalItems}" class="item" th:classappend="${iterStatus.first} ? 'active'">
             <img src="http://lorempixel.com/1350/500/city" alt="First slide" />
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5 col-lg-offset-5 col-sm-5 col-sm-offset-6">
-                        <h1>Example headline.</h1>
-                        <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <img src="http://lorempixel.com/1350/500/city" alt="Second slide" />
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5 col-lg-offset-5 col-sm-5 col-sm-offset-6">
-                        <h1>Another example headline.</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <img src="http://lorempixel.com/1350/500/city" alt="Third slide" />
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5 col-lg-offset-5 col-sm-5 col-sm-offset-6">
-                        <h1>One more for good measure.</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                        <h1>Nouvelle destination :</h1>
+                        <h2 th:text="#{carousel.sourceDestinationPour(${item.villeDepart}, ${item.villeArrivee}, ${item.prix})}">Paris Marseille pour 99&nbsp;€&nbsp;90</h2>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Aller voir</a></p>
                     </div>
                 </div>
             </div>

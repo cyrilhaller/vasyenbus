@@ -27,7 +27,12 @@
         <appender-ref ref="FILE"/>
     </logger>
 
-    <root level="${logger.level}">
+    <logger name="org.springframework.data.document.mongodb" level="${logger.level}" additivity="true">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+    </logger>
+
+    <root level="warn">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
     </root>

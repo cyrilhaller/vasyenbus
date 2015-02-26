@@ -1,8 +1,11 @@
 package fr.vasyenbus.service;
 
+import fr.vasyenbus.dao.PushDao;
 import fr.vasyenbus.dataobject.PushObj;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,8 +14,18 @@ import java.util.List;
 @Service
 public class PushServiceImpl implements PushService {
 
+    @Autowired
+    private PushDao dao;
+
     @Override
     public List<PushObj> pushCarouselPrincipal() {
-        return null;
+
+        List<PushObj> result = new ArrayList<PushObj>();
+        result.add(new PushObj("Paris", "Toulon", 70.5F));
+        result.add(new PushObj("Poulon", "Marseil", 80.5F));
+        result.add(new PushObj("Marseil", "Paris", 90.5F));
+        dao.deleteAll();
+        dao.save(result);
+        return dao.findAll();
     }
 }

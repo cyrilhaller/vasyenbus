@@ -31,7 +31,9 @@
         - Message source for this context, loaded from localized "messages_xx" files.
         - Files are stored inside src/main/resources
     -->
-    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"
-          p:basename="messages/messages"/>
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="messages/messages" />
+        <property name="defaultEncoding" value="UTF-8" />
+    </bean>
 
 </beans>
