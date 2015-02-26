@@ -22,7 +22,7 @@ public class PushServiceImpl implements PushService {
 
         List<PushObj> result = new ArrayList<PushObj>();
         result.add(new PushObj("Paris", "Toulon", 70.5F));
-        result.add(new PushObj("Poulon", "Marseil", 80.5F));
+        result.add(new PushObj("Toulon", "Marseil", 80.5F));
         result.add(new PushObj("Marseil", "Paris", 90.5F));
         dao.deleteAll();
         dao.save(result);

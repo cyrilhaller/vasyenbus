@@ -22,12 +22,12 @@
         </layout>
     </appender>
 
-    <logger name="fr.vasyenbus.controller" level="${logger.level}" additivity="true">
+    <logger name="fr.vasyenbus.controller" level="${logger.level}" additivity="false">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
     </logger>
 
-    <logger name="org.springframework.data.document.mongodb" level="${logger.level}" additivity="true">
+    <logger name="org.springframework.data.mongodb" level="${logger.level}" additivity="false">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
     </logger>

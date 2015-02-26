@@ -4,7 +4,11 @@
     <title>Vas-y en bus !</title>
 </head>
 <body>
-<div th:fragment="footer">
+
+<div th:replace="fragments/nav :: nav"></div>
+
+
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -17,6 +21,5 @@
 <div class="device-sm visible-sm">SM</div>
 <div class="device-md visible-md">MD</div>
 <div class="device-lg visible-lg">LG</div>
-</div>
 </body>
 </html>

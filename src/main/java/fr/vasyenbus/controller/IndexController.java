@@ -19,6 +19,7 @@ import java.util.List;
 public class IndexController {
 
     private static final String VIEW_INDEX = "index";
+    private static final String VIEW_REVELATION = "revelation";
     private final static Logger logger = LoggerFactory.getLogger(IndexController.class);
 
     @Autowired
@@ -30,4 +31,10 @@ public class IndexController {
         model.addAttribute("carouselPrincipalItems", pushs);
         return VIEW_INDEX;
     }
+
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public String revelation(ModelMap model) {
+        return VIEW_REVELATION;
+    }
+
 }
