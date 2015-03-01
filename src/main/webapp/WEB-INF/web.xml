@@ -7,11 +7,6 @@
     <display-name>Vas y en bus</display-name>
     <description>vasyenbus.fr application</description>
 
-    <context-param>
-        <param-name>spring.profiles.active</param-name>
-        <param-value>production</param-value>
-    </context-param>
-
     <!--
         - Location of the XML file that defines the root application context.
         - Applied by ContextLoaderServlet.
